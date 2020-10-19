@@ -1,0 +1,16 @@
+main {
+    margin-left: 7rem;
+    margin-right: 7rem;
+    margin-top: 1rem;
+}
+
+#relBtn {
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width:780px) {
+    main {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}

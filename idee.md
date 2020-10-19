@@ -17,3 +17,9 @@
  - express
  - minecraft-query (Documentation: https://github.com/emilianomaccaferri/minecraft-query)
  - modern-rcon (Documentation: https://github.com/levrik/node-modern-rcon)
+## Shortcuts
+ - reload
+ - gamerule
+ - ^
+
+ ## License
