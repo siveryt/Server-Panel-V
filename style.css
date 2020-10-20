@@ -5,7 +5,24 @@ main {
 }
 
 #relBtn {
-    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.shortcutTF {
+    margin-right: 0.5rem;
+}
+
+.liBtns {
+    float: right;
+}
+
+.liBtns .btn {
+    margin-left: 1rem;
+}
+
+toolbar {
+    position: absolute;
+    bottom: 1rem;
 }
 
 @media screen and (max-width:780px) {

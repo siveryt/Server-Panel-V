@@ -8,6 +8,7 @@ if($username != "N/A" && $password != "N/A"){
     if($login_cred[$username] == true && $login_cred[$username]["password"] === $password){
         session_start();
         $_SESSION["login"] = true;
+        $_SESSION["username"] = $username;
                 
         // echo($password . $username);
         // echo($login_cred[$username]["password"]);

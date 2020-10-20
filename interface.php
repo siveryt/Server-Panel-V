@@ -1,6 +1,9 @@
 <?php session_start(); if($_SESSION["login"] == true){
     
-    $function = isset($_GET["func"]) ? $_GET["func"] : "dashboard"
+    $function = isset($_GET["func"]) ? $_GET["func"] : "start";
+    if(!isset($_SESSION["server"])){
+        $function = "start";
+    }
 
     ?>
 
@@ -31,25 +34,25 @@
         </div>
     </nav> -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Server Panel V</a>
+        <a class="navbar-brand" href="interface.php">Server Panel V</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="interface.php?func=dashboard">Dashboard <span
+            <ul class="navbar-nav ">
+                <li class="nav-item <?php if($function == "dashboard"){echo("active");} ?>">
+                    <a class="nav-link <?php if($function == "start"){echo("disabled");} ?>" <?php if($function != "start"){echo('href="interface.php?func=dashboard"');} ?>>Dashboard <span
                             class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="interface.php?func=player">Player</a>
+                <li class="nav-item <?php if($function == "player"){echo("active");} ?>">
+                    <a class="nav-link <?php if($function == "start"){echo("disabled");} ?>" <?php if($function != "start"){echo('href="interface.php?func=player"');} ?>>Player</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="interface.php?func=console">Console</a>
+                <li class="nav-item <?php if($function == "console"){echo("active");} ?>">
+                    <a class="nav-link <?php if($function == "start"){echo("disabled");} ?>" <?php if($function != "start"){echo('href="interface.php?func=console"');} ?>>Console</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="interface.php?func=settings">Settings</a>
+                <li class="nav-item <?php if($function == "settings"){echo("active");} ?>">
+                    <a class="nav-link <?php if($function == "start"){echo("disabled");} ?>" <?php if($function != "start"){echo('href="interface.php?func=settings"');} ?>>Settings</a>
                 </li>
             </ul>
         </div>
@@ -59,9 +62,31 @@
 
         <?php
     require("functions/$function.php");
+    require("data/server.php");
     ?>
-
+        <br />
+        <?php if($function != "start"){ ?>
+        <toolbar>
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <button type="button" class="btn btn-secondary">Currently: <?php echo($server[$_SESSION["server"]]["name"]) ?></button>
+                <div class="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Server
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                        <?php
+                        foreach($server as $selectedServer){
+                        echo('<a class="dropdown-item" href="selectServer.php?server='.$selectedServer["id"].'&func='.$function.'">'.$selectedServer["name"].'</a>');
+                        } ?>
+                    </div>
+                </div>
+            </div>
+        </toolbar>
+        <?php } ?>
     </main>
+    <footer>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>

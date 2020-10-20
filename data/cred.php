@@ -3,7 +3,7 @@ $login_cred = [
    "root" => [
        "name" => "root",
        "password" => "spv",
-       "access" => "*"
+       "access" => ["*"]
    ],
 ]
 ?>
