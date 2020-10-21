@@ -12,12 +12,18 @@
     ?>
 
 <?php 
-  $response = file_get_contents('https://api.mojang.com/users/profiles/minecraft/_Sivery');
-  $response = json_decode($response);
+
 //   echo($response[1]);
 ?>
 <ul class="list-group list-group-flush">
     <?php
+
+if($queryInfo["game_id"] == ""){?>
+    <div class="alert alert-danger" role="alert">
+        <?php echo("Server is offline or some error occurred"); ?>
+    </div>
+<?php }else{
+
 foreach ($queryInfo["players"] as $playerName){
     
     $response = file_get_contents("https://api.mojang.com/users/profiles/minecraft/$playerName");
@@ -55,7 +61,7 @@ foreach ($queryInfo["players"] as $playerName){
     </div>
     <?php
 }
-
+}
 ?>
 
 </ul>

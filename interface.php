@@ -77,6 +77,7 @@
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                         <?php
                         foreach($server as $selectedServer){
+
                         echo('<a class="dropdown-item" href="selectServer.php?server='.$selectedServer["id"].'&func='.$function.'">'.$selectedServer["name"].'</a>');
                         } ?>
                     </div>

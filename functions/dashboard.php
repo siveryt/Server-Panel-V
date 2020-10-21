@@ -12,8 +12,15 @@ session_start(); if($_SESSION["login"] == true){
     }
 
 ?>
-
+<?php
+if($queryInfo["game_id"] == ""){?>
+    <div class="alert alert-danger" role="alert">
+        <?php echo("Server is offline or some error occurred"); ?>
+    </div>
+<?php }
+?>
 <h1>Dashboard</h1>
+
 <ul class="list-group list-group-flush">
     <li class="list-group-item">Server IP: <?php echo($queryInfo["hostip"]); ?>:<?php echo($queryInfo["hostport"]); ?>
     </li>

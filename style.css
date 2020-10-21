@@ -25,6 +25,14 @@ toolbar {
     bottom: 1rem;
 }
 
+.online {
+    color: greenyellow;
+}
+
+.offline {
+    color: red;
+}
+
 @media screen and (max-width:780px) {
     main {
         margin-left: 1rem;
