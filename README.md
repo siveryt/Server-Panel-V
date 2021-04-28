@@ -1,5 +1,8 @@
-# Server-Panel-V
+# ARCHIVED
 
+
+# Server-Panel-V
+If you want to continue this, please send me an email. I'd be happy if i knew this project is reviving. Bye
 <<<<<<< HEAD
 ## Other Projects used
 
